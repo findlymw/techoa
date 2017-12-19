@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Implementation-Title: jts-oa
+Implementation-Version: 0.0.1-SNAPSHOT
+Built-By: apple
+Implementation-Vendor-Id: cn.mty.jts
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_121
+Main-Class: ${start-class}
+
