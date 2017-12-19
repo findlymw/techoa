@@ -5,6 +5,7 @@ import cn.mty.jts.jtsoa.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class UserController {
@@ -13,9 +14,12 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/index.html")
-    public String index(){
+    public ModelAndView index(){
        User user = userService.get(1);
-        return "aaa + " + user.getNickName();
+       ModelAndView modelAndView = new ModelAndView();
+       modelAndView.setViewName("index");
+        //return "aaa + " + user.getNickName();
+        return modelAndView;
     }
 
 }
