@@ -1,4 +1,4 @@
-package cn.mty.jts.jtsoa.controller.user;
+package cn.mty.jts.jtsoa.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
