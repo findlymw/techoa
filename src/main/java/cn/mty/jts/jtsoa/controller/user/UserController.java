@@ -1,25 +1,27 @@
 package cn.mty.jts.jtsoa.controller.user;
 
-import cn.mty.jts.jtsoa.pojo.User;
 import cn.mty.jts.jtsoa.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.ModelAndView;
 
-@RestController
+import java.util.Map;
+
+@Controller
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/index.html")
-    public ModelAndView index(){
-       User user = userService.get(1);
-       ModelAndView modelAndView = new ModelAndView();
-       modelAndView.setViewName("index");
-        //return "aaa + " + user.getNickName();
-        return modelAndView;
+    // inject via application.properties
+    @Value("${welcome.message:test}")
+    private String message = "aaa";
+
+    @RequestMapping("/")
+    public String welcome(Map<String, Object> model) {
+        model.put("message", this.message);
+        return "welcome";
     }
 
 }
