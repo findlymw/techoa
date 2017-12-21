@@ -164,8 +164,8 @@ public class UserController {
                         rewardandpunishment.setRptype(0);
                         rewardandpunishment.setDescStr(
                                 executePOJO.getUserName() + "于" +
-                                CommonUtil.timeFormat(System.currentTimeMillis())+
-                                "获得" + CommonUtil.getPriceFormat(executePOJO.getAmount()) + "元的奖励资金.");
+                                        CommonUtil.timeFormat(System.currentTimeMillis())+
+                                        "获得" + CommonUtil.getPriceFormat(executePOJO.getAmount()) + "元的奖励资金.");
                         BigDecimal totalBD = new BigDecimal(totalAcount);
                         BigDecimal balance = totalBD.subtract(new BigDecimal(executePOJO.getAmount()));
                         rewardandpunishment.setBalance(balance.longValue());
@@ -186,9 +186,47 @@ public class UserController {
                     }
 
                 }
+            }
+        }
+        return "redirect:/user/manage/index.html";
+    }
 
 
-                System.out.println(JSONArray.toJSONString(executePOJO));
+    @RequestMapping(value = "/user/addaccount.html",method = RequestMethod.POST)
+    public String addaccount(HttpServletRequest request,ExecutePOJO executePOJO){
+        User suser = (User) request.getSession().getAttribute("user");
+        if(null != suser && suser.getAdmin() == 777) {
+            if(null != executePOJO && executePOJO.getAmount() > 0){
+
+                long totalAcount = 0;
+                try {
+                    totalAcount = totalAccountService.getTotalAccount();
+                } catch (Exception e) {
+                    totalAcount = 0;
+                }
+
+                Rewardandpunishment rewardandpunishment = null;
+                if(totalAcount > 0) {
+                    rewardandpunishment = new Rewardandpunishment();
+                    rewardandpunishment.setUserId(0);
+                    rewardandpunishment.setBonus(executePOJO.getAmount());
+                    rewardandpunishment.setCreateTime(System.currentTimeMillis());
+                    rewardandpunishment.setRptype(2);
+                    rewardandpunishment.setDescStr("管理员于" +
+                            CommonUtil.timeFormat(System.currentTimeMillis())+
+                            "向账户充值" +  CommonUtil.getPriceFormat(executePOJO.getAmount()) + "元的资金.");
+                    BigDecimal totalBD = new BigDecimal(totalAcount);
+                    BigDecimal balance = totalBD.add(new BigDecimal(executePOJO.getAmount()));
+                    rewardandpunishment.setBalance(balance.longValue());
+
+
+                    try {
+                        rewardAndPunishmentService.insert(rewardandpunishment);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
             }
         }
         return "redirect:/user/manage/index.html";

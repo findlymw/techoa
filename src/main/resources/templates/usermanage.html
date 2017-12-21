@@ -19,6 +19,13 @@
     <p><input type="text" name="userName" /> <input type="submit" value="添加" /></p>
 </form>
 
+<h2>充资金</h2>
+<form action="/user/addaccount.html" method="post">
+    <div>
+        <input type="number" name="amount" placeholder="充资金的金额"/>元 <input type="submit" value="提交"/>
+    </div>
+</form>
+
 
 <ul>
     <li th:each="user : ${userList}">
