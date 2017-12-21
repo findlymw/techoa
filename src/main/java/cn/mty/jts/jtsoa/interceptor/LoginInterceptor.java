@@ -19,11 +19,8 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response,
                              Object handler) throws Exception {
-        System.out.println("-------------------preHandle");
         // 验证用户是否登陆
         Object obj = request.getSession().getAttribute("user");
-        System.out.println("ojb:" + obj);
-        System.out.println("url:" + request.getContextPath() + "/user/index.html");
         if (obj == null || !(obj instanceof User)) {
             response.sendRedirect(request.getContextPath() + "/");
             return false;
@@ -39,7 +36,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response,
                            Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println("-------------------postHandle");
     }
 
     /**
@@ -49,7 +45,6 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response,
                                 Object handler, Exception ex) throws Exception {
-        System.out.println("-------------------afterCompletion");
     }
 
 }
