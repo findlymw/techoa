@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Spring Boot Thymeleaf Hello World Example</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -14,15 +14,24 @@
 </head>
 <body id="example" class="basic minimal" ontouchstart="">
 
-<p th:text="*{totalAccount}"></p>
+<h2>新增</h2>
+<form action="/user/addUser.html" method="post">
+    <p><input type="text" name="userName" /> <input type="submit" value="添加" /></p>
+</form>
 
-<a href="/user/manage/index.html" th:if="${user.admin} == 777" th:text="用户管理"></a>
+<table>
+    <tr>
+        <th>姓名</th>
+        <th>昵称</th>
+        <th>创建时间</th>
+    </tr>
+    <tr th:each="user : ${userList}">
+        <td th:text="${user.userName}">Onions</td>
+        <td th:text="${user.nickName}">2.41</td>
+        <td th:text="${user.creteaTimeString}"></td>
+    </tr>
+</table>
 
-<a href="/user/manage/index.html" th:if="${user.admin} != 777" th:text="我的奖励记录"></a>
-<a href="/user/manage/index.html" th:if="${user.admin} != 777" th:text="我的惩罚记录"></a>
-
-<p th:text="*{user.userName}"></p>
-<a href="/logout.html">退出</a>
 <script th:src="@{/sui/semantic.min.js}"></script>
 </body>
 </html>

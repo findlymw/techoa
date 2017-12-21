@@ -1,15 +1,17 @@
 package cn.mty.jts.jtsoa.pojo;
 
+import cn.mty.jts.jtsoa.common.CommonUtil;
+
 public class Base {
     private Integer id;
     private long createTime;
-    private long creteaTimeString;
+    private String creteaTimeString;
 
-    public long getCreteaTimeString() {
-        return creteaTimeString;
+    public String getCreteaTimeString() {
+        return CommonUtil.timeFormat(createTime);
     }
 
-    public void setCreteaTimeString(long creteaTimeString) {
+    public void setCreteaTimeString(String creteaTimeString) {
         this.creteaTimeString = creteaTimeString;
     }
 

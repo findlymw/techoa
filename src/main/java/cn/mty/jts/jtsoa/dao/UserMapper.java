@@ -10,7 +10,7 @@ import java.util.List;
 
 @Mapper
 public interface UserMapper {
-    @Insert("insert into user(username,password) values(#{username},#{password})")
+    @Insert("insert into user(username,password,nickname,admin,createtime) values(#{userName},#{password},#{nickName},#{admin},#{createTime})")
    public int save(User user);
 
    public User get(int id);

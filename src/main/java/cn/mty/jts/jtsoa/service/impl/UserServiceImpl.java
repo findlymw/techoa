@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -27,5 +29,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByUP(User user) throws Exception {
         return userMapper.getUserByUP(user);
+    }
+
+    @Override
+    public List<User> getAll() throws Exception {
+        return userMapper.getAll();
     }
 }

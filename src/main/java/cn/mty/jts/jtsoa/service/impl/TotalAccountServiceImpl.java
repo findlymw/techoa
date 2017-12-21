@@ -15,4 +15,9 @@ public class TotalAccountServiceImpl implements TotalAccountService{
     public int updateTotalAccount(TotalAccountMapper totalAccount) throws Exception {
         return totalAccountMapper.updateTotalAccount(totalAccount);
     }
+
+    @Override
+    public long getTotalAccount() throws Exception {
+        return totalAccountMapper.getTotalAccount();
+    }
 }
