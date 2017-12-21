@@ -50,6 +50,7 @@ public class UserController {
 
         if(null != _user){
             System.out.println("login : " + _user.getUserName());
+            request.getSession().setAttribute("user",_user);
             return "redirect:/user/index.html";
         }
 
