@@ -1,20 +1,22 @@
 package cn.mty.jts.jtsoa.pojo;
 
-public class User {
+public class User extends Base {
 
-    private Integer id;
     private String userName;
     private String password;
     private String nickName;
-    private long createTime;
+    private Integer admin;
 
-    public Integer getId() {
-        return id;
+
+    public Integer getAdmin() {
+        return admin;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setAdmin(Integer admin) {
+        this.admin = admin;
     }
+
+
 
     public String getUserName() {
         return userName;
@@ -38,13 +40,5 @@ public class User {
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
-    }
-
-    public long getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(long createTime) {
-        this.createTime = createTime;
     }
 }

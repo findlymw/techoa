@@ -13,7 +13,17 @@
 
 </head>
 <body id="example" class="basic minimal" ontouchstart="">
-dd
+<form action="/login.html" method="post">
+    <p>
+        <input type="text" name="userName" placeholder="Please input your account" />
+    </p>
+    <p>
+        <input type="password" name="password" placeholder="Please input your password" />
+    </p>
+    <p>
+        <input type="submit" value="登录" />
+    </p>
+</form>
 <script th:src="@{/sui/semantic.min.js}"></script>
 </body>
 </html>

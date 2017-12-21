@@ -1,7 +1,8 @@
-package cn.mty.jts.jtsoa.service.user;
+package cn.mty.jts.jtsoa.service.impl;
 
-import cn.mty.jts.jtsoa.dao.user.UserMapper;
+import cn.mty.jts.jtsoa.dao.UserMapper;
 import cn.mty.jts.jtsoa.pojo.User;
+import cn.mty.jts.jtsoa.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,12 +15,17 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public int save(User user) {
+    public int save(User user) throws Exception {
         return userMapper.save(user);
     }
 
     @Override
-    public User get(int id) {
+    public User get(int id) throws Exception {
         return userMapper.get(id);
+    }
+
+    @Override
+    public User getUserByUP(User user) throws Exception {
+        return userMapper.getUserByUP(user);
     }
 }
