@@ -5,6 +5,15 @@ public class Rewardandpunishment extends Base {
     private long bonus;
     private long balance;
     private Integer rptype;
+    private String descStr;
+
+    public String getDescStr() {
+        return descStr;
+    }
+
+    public void setDescStr(String descStr) {
+        this.descStr = descStr;
+    }
 
     public long getUserId() {
         return userId;

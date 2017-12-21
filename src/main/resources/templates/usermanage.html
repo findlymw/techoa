@@ -19,18 +19,26 @@
     <p><input type="text" name="userName" /> <input type="submit" value="添加" /></p>
 </form>
 
-<table>
-    <tr>
-        <th>姓名</th>
-        <th>昵称</th>
-        <th>创建时间</th>
-    </tr>
-    <tr th:each="user : ${userList}">
-        <td th:text="${user.userName}">Onions</td>
-        <td th:text="${user.nickName}">2.41</td>
-        <td th:text="${user.creteaTimeString}"></td>
-    </tr>
-</table>
+
+<ul>
+    <li th:each="user : ${userList}">
+        <form action="/user/execute.html" method="post">
+            <a th:href="@{'/user/delUser/'+${user.id}+'.html'}">del</a>
+            <p th:text="'用户名：' + ${user.userName} + ' 昵称：' + ${user.nickName} + ' 创建时间：' + ${user.creteaTimeString}"></p>
+            <p>
+                <div>
+                    <input type="hidden" name="userId" th:value="${user.id}"/>
+                    <input type="hidden" name="userName" th:value="${user.userName}"/>
+                    <select name="opType">
+                        <option selected="selected" value="0">请选择</option>
+                        <option value="1">奖励</option>
+                        <option value="2">惩罚</option>
+                    </select>
+                <input type="number" name="amount" placeholder="金额"/>元 <input type="submit" value="提交"/></div>
+            </p>
+        </form>
+    </li>
+</ul>
 
 <script th:src="@{/sui/semantic.min.js}"></script>
 </body>

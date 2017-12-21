@@ -35,4 +35,9 @@ public class UserServiceImpl implements UserService {
     public List<User> getAll() throws Exception {
         return userMapper.getAll();
     }
+
+    @Override
+    public int delUser(int id) throws Exception {
+        return userMapper.delUser(id);
+    }
 }

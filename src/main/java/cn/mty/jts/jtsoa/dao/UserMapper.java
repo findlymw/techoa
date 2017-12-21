@@ -15,7 +15,7 @@ public interface UserMapper {
 
    public User get(int id);
 
-   @Select("select * from user")
+   @Select("select * from user where admin = 0")
    public List<User> getAll();
 
    @Delete("delete from user where id = #{id}")

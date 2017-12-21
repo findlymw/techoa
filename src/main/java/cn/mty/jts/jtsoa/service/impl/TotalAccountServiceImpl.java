@@ -1,6 +1,7 @@
 package cn.mty.jts.jtsoa.service.impl;
 
 import cn.mty.jts.jtsoa.dao.TotalAccountMapper;
+import cn.mty.jts.jtsoa.pojo.TotalAccount;
 import cn.mty.jts.jtsoa.service.TotalAccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ public class TotalAccountServiceImpl implements TotalAccountService{
     private TotalAccountMapper totalAccountMapper;
     @Transactional
     @Override
-    public int updateTotalAccount(TotalAccountMapper totalAccount) throws Exception {
+    public int updateTotalAccount(TotalAccount totalAccount) throws Exception {
         return totalAccountMapper.updateTotalAccount(totalAccount);
     }
 
