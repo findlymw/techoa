@@ -3,10 +3,7 @@ package cn.mty.jts.jtsoa.controller;
 import cn.mty.jts.jtsoa.common.CommonUtil;
 import cn.mty.jts.jtsoa.common.MD5;
 import cn.mty.jts.jtsoa.dao.RewardAndPunishmentMapper;
-import cn.mty.jts.jtsoa.pojo.ExecutePOJO;
-import cn.mty.jts.jtsoa.pojo.Rewardandpunishment;
-import cn.mty.jts.jtsoa.pojo.TotalAccount;
-import cn.mty.jts.jtsoa.pojo.User;
+import cn.mty.jts.jtsoa.pojo.*;
 import cn.mty.jts.jtsoa.service.RewardAndPunishmentService;
 import cn.mty.jts.jtsoa.service.TotalAccountService;
 import cn.mty.jts.jtsoa.service.UserService;
@@ -15,9 +12,7 @@ import com.alibaba.fastjson.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -231,5 +226,8 @@ public class UserController {
         }
         return "redirect:/user/manage/index.html";
     }
+
+
+
 
 }

@@ -1,28 +1,25 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Spring Boot Thymeleaf Hello World Example</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/sui/semantic.min.css}" />
+<head th:replace="inc/header :: head"></head>
+<body id="example" style="background: #efefef;">
+<div class="container">
+    <div th:replace="inc/header :: titleContent1"></div>
+    <div class="taclass">
+        <span class="totalAccountClass">Total Account: </span><span class="accountClass" th:text="*{totalAccount}"></span>
+    </div>
 
+    <hr/>
 
-    <link rel="stylesheet" th:href="@{/css/main.css}"
-          href="../../css/main.css" />
-
-</head>
-<body id="example" class="basic minimal" ontouchstart="">
-
-<p th:text="*{totalAccount}"></p>
-
-<a href="/user/manage/index.html" th:if="${user.admin} == 777" th:text="用户管理"></a>
-
-<a href="/user/manage/index.html" th:if="${user.admin} != 777" th:text="我的奖励记录"></a>
-<a href="/user/manage/index.html" th:if="${user.admin} != 777" th:text="我的惩罚记录"></a>
-
-<p th:text="*{user.userName}"></p>
-<a href="/logout.html">退出</a>
-<script th:src="@{/sui/semantic.min.js}"></script>
+    <div class="funcList">
+        <a href="/user/manage/index.html" th:if="${user.admin} == 777" th:text="UserManager"></a>
+        <a href="/user/manage/index.html" th:if="${user.admin} != 777" th:text="我的奖励记录"></a>
+        <a href="/user/manage/index.html" th:if="${user.admin} != 777" th:text="我的惩罚记录"></a>
+    </div>
+    <div class="userInfoClass">
+        <span th:text="Welcome +  ' '  + *{user.userName}"></span>
+        <a class="logoutClass" href="/logout.html"> [ Sign Out ]</a>
+    </div>
+</div>
+<div th:replace="inc/footer"></div>
 </body>
 </html>

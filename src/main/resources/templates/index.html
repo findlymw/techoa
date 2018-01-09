@@ -1,29 +1,21 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Spring Boot Thymeleaf Hello World Example</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/sui/semantic.min.css}" />
-
-
-    <link rel="stylesheet" th:href="@{/css/main.css}"
-          href="../../css/main.css" />
-
-</head>
-<body id="example" class="basic minimal" ontouchstart="">
+<head th:replace="inc/header :: head"></head>
+<body id="example" style="background: #efefef;" ontouchstart="">
+<div class="container">
+    <div th:replace="inc/header :: titleContent"></div>
 <form action="/login.html" method="post">
     <p>
-        <input type="text" name="userName" placeholder="Please input your account" />
+        UserName: <input class="loginInput" type="text" name="userName" placeholder="Please input your account" />
     </p>
     <p>
-        <input type="password" name="password" placeholder="Please input your password" />
+        Password: <input class="loginInput" type="password" name="password" placeholder="Please input your password" />
     </p>
     <p>
-        <input type="submit" value="登录" />
+        <input class="loginClass" type="submit" value="Sign In" />
     </p>
 </form>
-<script th:src="@{/sui/semantic.min.js}"></script>
+</div>
+<div th:replace="inc/footer"></div>
 </body>
 </html>
