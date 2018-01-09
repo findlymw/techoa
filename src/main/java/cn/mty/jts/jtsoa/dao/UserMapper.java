@@ -1,10 +1,7 @@
 package cn.mty.jts.jtsoa.dao;
 
 import cn.mty.jts.jtsoa.pojo.User;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -24,5 +21,8 @@ public interface UserMapper {
 
    @Select("select * from user where username = #{userName} and password = #{password}")
    public User getUserByUP(User user);
+
+   @Update("update user set password = #{password} where id = #{id}")
+   public int updatePasswordByUserId(User user);
 
 }

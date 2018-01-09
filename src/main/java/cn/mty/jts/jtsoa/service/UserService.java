@@ -11,4 +11,5 @@ public interface UserService {
     public User getUserByUP(User user) throws Exception;
     public List<User> getAll() throws Exception;
     public int delUser(int id) throws Exception;
+    public int updatePasswordByUserId(User user) throws Exception;
 }

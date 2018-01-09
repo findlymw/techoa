@@ -40,4 +40,9 @@ public class UserServiceImpl implements UserService {
     public int delUser(int id) throws Exception {
         return userMapper.delUser(id);
     }
+
+    @Override
+    public int updatePasswordByUserId(User user) throws Exception {
+        return userMapper.updatePasswordByUserId(user);
+    }
 }

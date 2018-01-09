@@ -42,6 +42,17 @@ public class UserController {
         return "index";
     }
 
+    @RequestMapping("/user/modifypwd.html")
+    public String modifyPwd(HttpServletRequest request,Map<String, Object> model) {
+        User suser = (User) request.getSession().getAttribute("user");
+        if(null != suser) {
+            model.put("user", suser);
+            return "modifypwd";
+        }
+
+        return "redirect:/user/index.html";
+    }
+
     @RequestMapping("/user/index.html")
     public String welcomeUser(HttpServletRequest request,Map<String, Object> model) {
         model.put("user", (User)request.getSession().getAttribute("user"));
@@ -100,6 +111,38 @@ public class UserController {
         }
 
         return "redirect:/user/index.html";
+    }
+
+
+    @RequestMapping(value = "/user/executeModify.html",method = RequestMethod.POST)
+    public String executeModify(HttpServletRequest request,ModifyPWDPOJO modifyPWDPOJO){
+        User suser = (User) request.getSession().getAttribute("user");
+        if(null != suser) {
+            if(modifyPWDPOJO != null && modifyPWDPOJO.getOldPwd() != null
+                    && modifyPWDPOJO.getNewPwd() != null
+                    && modifyPWDPOJO.getNewPwd().length() >= 6
+                    ){
+                User user = new User();
+                user.setUserName(suser.getUserName());
+                user.setPassword(MD5.parseStrToMd5U32(modifyPWDPOJO.getOldPwd()));
+                try {
+                    user = userService.getUserByUP(user);
+                    if(null != user
+                            && user.getPassword().equals(MD5.parseStrToMd5U32(modifyPWDPOJO.getOldPwd()))){
+                        user.setPassword(MD5.parseStrToMd5U32(modifyPWDPOJO.getNewPwd()));
+                        userService.updatePasswordByUserId(user);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+
+            }else{
+                return "modifypwd";
+            }
+
+        }
+        return "redirect:/logout.html";
     }
 
     @RequestMapping(value = "/user/addUser.html",method = RequestMethod.POST)
