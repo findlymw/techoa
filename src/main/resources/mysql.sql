@@ -41,3 +41,5 @@ create table techoa.user
 )
 ;
 
+
+insert into user (username,password,nickname,admin,createtime) values('admin','C33367701511B4F6020EC61DED352059','admin','777','1513836625965');
