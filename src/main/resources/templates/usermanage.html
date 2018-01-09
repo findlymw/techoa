@@ -4,6 +4,11 @@
 <body id="example" style="background: #efefef;">
 <div class="container">
     <div th:replace="inc/header :: titleContent1"></div>
+
+    <p style="font-size:30px;margin-bottom:20px;text-align: left;padding-left: 20px;">
+        <a href="/user/index.html"> &lt; GOBACK</a>
+    </p>
+
     <div class="userManagerClass">
         <form action="/user/addUser.html" method="post">
             <h5>新增用户</h5><input style="width:200px" type="text" name="userName" placeholder="添加新用户，默认密码为123456"/> <input class="submitClass" type="submit" value="添加" />
@@ -37,7 +42,12 @@
                             </select>
 
                         <input type="number" name="amount" placeholder="金额"/>元
-                    <textarea name="desc" placeholder="输入原因"></textarea><input class="submitClass" type="submit" value="提交"/></div>
+                        <input class="submitClass" type="submit" value="提交"/>
+                        <br/>
+                        <textarea style="width: 500px;height:50px;border:1px solid #ccc;padding: 3px;" name="desc" placeholder="输入原因"></textarea>
+
+                    </div>
+
                     </p>
                 </form>
             </li>

@@ -183,7 +183,9 @@ public class UserController {
     public String execute(HttpServletRequest request,ExecutePOJO executePOJO){
         User suser = (User) request.getSession().getAttribute("user");
         if(null != suser && suser.getAdmin() == 777) {
-            if(null != executePOJO && executePOJO.getUserId() > 0 && executePOJO.getAmount() > 0){
+            if(null != executePOJO
+                    && executePOJO.getUserId() > 0
+                    && executePOJO.getAmount() > 0){
 
                 long totalAcount = 0;
                 try {

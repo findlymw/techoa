@@ -47,5 +47,6 @@ footer{position:absolute;bottom:0;width:100%;height:50px;line-height:50px;backgr
 .rpList{padding:5px;}
 .rpList h1{color: #1c2438;}
 .rpList ul li{margin: 10px;height: 30px;text-align: left;
-    line-height: 1px;
+    font-size:20px;
+    line-height:1px;
     padding:20px;background: #fff;border-radius: 8px;vertical-align: middle}

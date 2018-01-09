@@ -4,16 +4,16 @@
 <body id="example" style="background: #efefef;">
 <div class="container">
     <div th:replace="inc/header :: titleContent1"></div>
-
+    <p style="font-size:30px;margin-bottom:20px;text-align: left;padding-left: 20px;">
+        <a href="/user/index.html"> &lt; GOBACK</a>
+    </p>
 
 
     <div style="padding-top:120px;">
-        <p style="font-size:30px;margin-bottom:20px;">
-            <a href="/user/index.html"> &lt; GOBACK</a>
-        </p>
+
     <form action="/user/executeModify.html" method="post">
-            原密码：<input type="number" name="oldPwd" placeholder="输入原密码"/>
-            新密码：<input type="number" name="newPwd" placeholder="输入新密码"/>
+            原密码：<input type="text" name="oldPwd" placeholder="输入原密码"/>
+            新密码：<input type="text" name="newPwd" placeholder="输入新密码"/>
             <input class="submitClass" type="submit" value="提交"/>
     </form>
 
