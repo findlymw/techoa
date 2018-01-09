@@ -40,7 +40,7 @@ public class JsonController {
                             if(user > 0){
                                 Rewardandpunishment rewardandpunishment = new Rewardandpunishment();
                                 rewardandpunishment.setUserId(suser.getId());
-                                rewardandpunishments = rewardAndPunishmentService.getPunishmentOfUser(new Rewardandpunishment());
+                                rewardandpunishments = rewardAndPunishmentService.getPunishmentOfUser(rewardandpunishment);
                             }else {
                                 rewardandpunishments = rewardAndPunishmentService.getPunishmentOfAll(new Rewardandpunishment());
                             }
@@ -53,7 +53,7 @@ public class JsonController {
                     jsonObject.setStatus(200);
                     jsonObject.setResult("true");
                     jsonObject.setMsg("success");
-                    jsonObject.setDate(rewardandpunishments);
+                    jsonObject.setData(rewardandpunishments);
                     return jsonObject;
                 }catch(Exception e){e.printStackTrace();}
             }

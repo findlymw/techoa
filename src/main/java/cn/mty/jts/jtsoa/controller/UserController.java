@@ -160,7 +160,7 @@ public class UserController {
                         rewardandpunishment.setDescStr(
                                 executePOJO.getUserName() + "于" +
                                         CommonUtil.timeFormat(System.currentTimeMillis())+
-                                        "获得" + CommonUtil.getPriceFormat(executePOJO.getAmount()) + "元的奖励资金.");
+                                        "获得" + CommonUtil.getPriceFormat(executePOJO.getAmount()) + "元的奖励资金.[原因]：" + executePOJO.getDesc());
                         BigDecimal totalBD = new BigDecimal(totalAcount);
                         BigDecimal balance = totalBD.subtract(new BigDecimal(executePOJO.getAmount()));
                         rewardandpunishment.setBalance(balance.longValue());
@@ -168,7 +168,7 @@ public class UserController {
                         rewardandpunishment.setRptype(1);
                         rewardandpunishment.setDescStr(executePOJO.getUserName() + "于" +
                                 CommonUtil.timeFormat(System.currentTimeMillis())+
-                                "获得" +  CommonUtil.getPriceFormat(executePOJO.getAmount()) + "元的惩罚资金.");
+                                "获得" +  CommonUtil.getPriceFormat(executePOJO.getAmount()) + "元的惩罚资金.[原因]：" + executePOJO.getDesc());
                         BigDecimal totalBD = new BigDecimal(totalAcount);
                         BigDecimal balance = totalBD.add(new BigDecimal(executePOJO.getAmount()));
                         rewardandpunishment.setBalance(balance.longValue());

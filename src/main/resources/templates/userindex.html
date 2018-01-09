@@ -9,11 +9,26 @@
     </div>
 
     <hr/>
-
     <div class="funcList">
-        <a href="/user/manage/index.html" th:if="${user.admin} == 777" th:text="UserManager"></a>
-        <a href="/user/manage/index.html" th:if="${user.admin} != 777" th:text="我的奖励记录"></a>
-        <a href="/user/manage/index.html" th:if="${user.admin} != 777" th:text="我的惩罚记录"></a>
+        <a class="rplistClass" rptype="1" th:text="惩罚记录"></a>
+        <a class="rplistClass" rptype="0" th:text="奖励记录"></a>
+        <a class="rplistClass" rptype="2" th:text="充值记录"></a>
+    </div>
+    <div class="clear"></div>
+    <div class="funcList">
+        <a class="rplistClass" href="/user/manage/index.html" th:if="${user.admin} == 777" th:text="UserManager"></a>
+        <a class="rplistClass" rptype="1-0" th:if="${user.admin} != 777" th:text="我的奖励记录"></a>
+        <a class="rplistClass" rptype="1-1" th:if="${user.admin} != 777" th:text="我的惩罚记录"></a>
+
+
+    </div>
+    <div class="clear"></div>
+    <p style="height: 20px;"> </p>
+    <hr/>
+
+    <div class="rpList">
+        <h1 id="listTitle"></h1>
+        <ul id="rpListUL"></ul>
     </div>
     <div class="userInfoClass">
         <span th:text="Welcome +  ' '  + *{user.userName}"></span>
@@ -21,5 +36,8 @@
     </div>
 </div>
 <div th:replace="inc/footer"></div>
+<script th:src="@{/js/jquery-1.7.2.min.js}"></script>
+<script th:src="@{/js/userindex.js}"></script>
+
 </body>
 </html>

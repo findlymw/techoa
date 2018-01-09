@@ -4,7 +4,7 @@ public class JsonObject {
     private int status;
     private String result;
     private String msg;
-    private Object date;
+    private Object data;
 
     public int getStatus() {
         return status;
@@ -30,11 +30,11 @@ public class JsonObject {
         this.msg = msg;
     }
 
-    public Object getDate() {
-        return date;
+    public Object getData() {
+        return data;
     }
 
-    public void setDate(Object date) {
-        this.date = date;
+    public void setData(Object data) {
+        this.data = data;
     }
 }

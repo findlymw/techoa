@@ -8,6 +8,7 @@ public class ExecutePOJO {
     private Integer opType;
     private Integer amount;
     private String userName;
+    private String desc;
 
     public String getUserName() {
         return userName;
@@ -40,5 +41,13 @@ public class ExecutePOJO {
 
     public void setAmount(Integer amount) {
         this.amount = amount;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }
